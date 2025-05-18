@@ -54,28 +54,32 @@ class BukuController extends Controller
     /**
      * Menampilkan form edit buku.
      */
-    public function edit(Buku $buku)
-    {
-        return view('editbuku', compact('buku'));
-    }
+   public function edit($id)
+{
+    $buku = Buku::findOrFail($id);
+    return view('editbuku', compact('buku'));
+}
+
 
     /**
      * Update data buku.
      */
-    public function update(Request $request, Buku $buku)
-    {
-        $request->validate([
-          'judul_buku' => 'required|string',
-            'kategori' => 'required|string',
-            'pengarang' => 'required|string',
-            'penerbit' => 'required|string',
-            'status' => 'required|string',
-        ]);
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'judul_buku' => 'required|string',
+        'kategori' => 'required|string',
+        'pengarang' => 'required|string',
+        'penerbit' => 'required|string',
+        'status' => 'required|string',
+    ]);
 
-        $buku->update($request->all());
+    $buku = Buku::findOrFail($id);
+    $buku->update($request->all());
 
-        return redirect()->route('buku.index')->with('success', 'Buku berhasil diperbarui.');
-    }
+    return redirect()->route('buku.index')->with('success', 'Buku berhasil diperbarui.');
+}
+
 
     /**
      * Hapus buku.

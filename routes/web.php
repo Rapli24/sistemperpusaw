@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [BukuController::class, 'store'])->name('buku.store');
         Route::get('/{id}/edit', [BukuController::class, 'edit'])->name('buku.edit');
         Route::put('/{id}', [BukuController::class, 'update'])->name('buku.update');
-        Route::delete('/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');
+        Route::delete('/{buku}', [BukuController::class, 'destroy'])->name('buku.destroy');
     });
 
     // Anggota
@@ -46,9 +46,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [AnggotaController::class, 'index'])->name('anggota.index');
         Route::get('/create', [AnggotaController::class, 'create'])->name('anggota.create');
         Route::post('/', [AnggotaController::class, 'store'])->name('anggota.store');
-        Route::get('/{id}/edit', [AnggotaController::class, 'edit'])->name('anggota.edit');
-        Route::put('/{id}', [AnggotaController::class, 'update'])->name('anggota.update');
-        Route::delete('/{id}', [AnggotaController::class, 'destroy'])->name('anggota.destroy');
+        Route::get('/{anggota}/edit', [AnggotaController::class, 'edit'])->name('anggota.edit');
+        Route::put('/{anggota}', [AnggotaController::class, 'update'])->name('anggota.update');
+        Route::delete('/{anggota}', [AnggotaController::class, 'destroy'])->name('anggota.destroy');
     });
 
     // Transaksi
@@ -56,9 +56,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [TransaksiController::class, 'index'])->name('transaksi.index');
         Route::get('/create', [TransaksiController::class, 'create'])->name('transaksi.create');
         Route::post('/', [TransaksiController::class, 'store'])->name('transaksi.store');
-        Route::get('/{id}/edit', [TransaksiController::class, 'edit'])->name('transaksi.edit');
-        Route::put('/{id}', [TransaksiController::class, 'update'])->name('transaksi.update');
-        Route::delete('/{id}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');
+        Route::get('/{transaksi}/edit', [TransaksiController::class, 'edit'])->name('transaksi.edit');
+        Route::put('/{transaksi}', [TransaksiController::class, 'update'])->name('transaksi.update');
+        Route::delete('/{transaksi}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');
     });
 
     // Laporan
